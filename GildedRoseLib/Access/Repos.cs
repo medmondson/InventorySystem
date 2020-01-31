@@ -16,7 +16,7 @@ namespace GildedRoseLib.Access
             };
 
         //sample inventory list
-        public static IList<Inventory> SampleInventories = new List<Inventory>()
+        public static IList<IInventory> SampleInventories = new List<IInventory>()
         {
             new Inventory(){Item = Items[0],SellIn = 1,Quality = 1, },
             new Inventory(){Item = Items[1],SellIn = -1,Quality = 2},

@@ -11,11 +11,11 @@ namespace GildedRoseLib
         private readonly int _maxQuality = 50;
         private readonly int _minQuality = 0;
         private readonly Lazy<IList<Item>> _items;
-        public Lazy<IEnumerable<Inventory>> Inventories;
+        public Lazy<IEnumerable<IInventory>> Inventories;
         public InventoryManagement()
         {
             _items = new Lazy<IList<Item>>(() => Repos.Items);
-            Inventories = new Lazy<IEnumerable<Inventory>>(() => Repos.SampleInventories);
+            Inventories = new Lazy<IEnumerable<IInventory>>(() => Repos.SampleInventories);
         }
 
         public void Adjust()
@@ -38,26 +38,6 @@ namespace GildedRoseLib
                     inventory.SellIn = null;
                 }
             }
-        }
-
-        //public void Adjust()
-        //{
-        //    foreach (var inventory in Inventories.Value)
-        //    {
-        //        var found = _items.Value.FirstOrDefault(i => i.Id == inventory.Item.Id);
-        //        if (found != null)
-        //        {
-        //            (inventory.SellIn, inventory.Quality) = found.Calculate(inventory.SellIn, inventory.Quality);
-        //            if (inventory.Quality > _maxQuality) inventory.Quality = _maxQuality;
-        //            else if (inventory.Quality < _minQuality) inventory.Quality = _minQuality;
-        //        }
-        //        else
-        //        {
-        //            inventory.Item.Error = "NO SUCH ITEM";
-        //            inventory.Quality = null;
-        //            inventory.SellIn = null;
-        //        }
-        //    }
-        //}
+        }  
     }
 }

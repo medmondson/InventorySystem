@@ -16,9 +16,9 @@ namespace GildedRoseTest
         public void Normal_Item_Before_SellIn_Date()
         {
             InventoryManagement inventoryManagement = new InventoryManagement();
-            inventoryManagement.Inventories = new Lazy<IEnumerable<Inventory>>(() =>
+            inventoryManagement.Inventories = new Lazy<IEnumerable<IInventory>>(() =>
                 {
-                    return new List<Inventory>()
+                    return new List<IInventory>()
                     {
                         new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(Normal)), SellIn = 2, Quality = 2}
 
@@ -34,9 +34,9 @@ namespace GildedRoseTest
         public void Normal_Item_After_SellIn_Date()
         {
             InventoryManagement inventoryManagement = new InventoryManagement();
-            inventoryManagement.Inventories = new Lazy<IEnumerable<Inventory>>(() =>
+            inventoryManagement.Inventories = new Lazy<IEnumerable<IInventory>>(() =>
             {
-                return new List<Inventory>()
+                return new List<IInventory>()
                 {
                     new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(Normal)), SellIn = -1, Quality = 5}
 
@@ -52,9 +52,9 @@ namespace GildedRoseTest
         public void Normal_Item_After_SellIn_Date_While_Negative_Quality()
         {
             InventoryManagement inventoryManagement = new InventoryManagement();
-            inventoryManagement.Inventories = new Lazy<IEnumerable<Inventory>>(() =>
+            inventoryManagement.Inventories = new Lazy<IEnumerable<IInventory>>(() =>
             {
-                return new List<Inventory>()
+                return new List<IInventory>()
                 {
                     new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(Normal)), SellIn = -1, Quality = -4}
 
@@ -71,9 +71,9 @@ namespace GildedRoseTest
         public void Legendary_Item_Before_SellIn_Date()
         {
             InventoryManagement inventoryManagement = new InventoryManagement();
-            inventoryManagement.Inventories = new Lazy<IEnumerable<Inventory>>(() =>
+            inventoryManagement.Inventories = new Lazy<IEnumerable<IInventory>>(() =>
             {
-                return new List<Inventory>()
+                return new List<IInventory>()
                 {
                     new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(Legendary)), SellIn = 2, Quality = 5}
 
@@ -89,9 +89,9 @@ namespace GildedRoseTest
         public void Legendary_Item_After_SellIn_Date()
         {
             InventoryManagement inventoryManagement = new InventoryManagement();
-            inventoryManagement.Inventories = new Lazy<IEnumerable<Inventory>>(() =>
+            inventoryManagement.Inventories = new Lazy<IEnumerable<IInventory>>(() =>
             {
-                return new List<Inventory>()
+                return new List<IInventory>()
                 {
                     new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(Legendary)), SellIn = -2, Quality = 5}
 
@@ -107,9 +107,9 @@ namespace GildedRoseTest
         public void BackStagePass_Item_Before_SellIn_Date_Greater_10()
         {
             InventoryManagement inventoryManagement = new InventoryManagement();
-            inventoryManagement.Inventories = new Lazy<IEnumerable<Inventory>>(() =>
+            inventoryManagement.Inventories = new Lazy<IEnumerable<IInventory>>(() =>
             {
-                return new List<Inventory>()
+                return new List<IInventory>()
                 {
                     new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(Pass)), SellIn = 12, Quality = 5}
 
@@ -125,9 +125,9 @@ namespace GildedRoseTest
         public void BackStagePass_Item_Before_SellIn_Date_On_10()
         {
             InventoryManagement inventoryManagement = new InventoryManagement();
-            inventoryManagement.Inventories = new Lazy<IEnumerable<Inventory>>(() =>
+            inventoryManagement.Inventories = new Lazy<IEnumerable<IInventory>>(() =>
             {
-                return new List<Inventory>()
+                return new List<IInventory>()
                 {
                     new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(Pass)), SellIn = 11, Quality = 5}
 
@@ -143,9 +143,9 @@ namespace GildedRoseTest
         public void BackStagePass_Item_Before_SellIn_Date_Less_10()
         {
             InventoryManagement inventoryManagement = new InventoryManagement();
-            inventoryManagement.Inventories = new Lazy<IEnumerable<Inventory>>(() =>
+            inventoryManagement.Inventories = new Lazy<IEnumerable<IInventory>>(() =>
             {
-                return new List<Inventory>()
+                return new List<IInventory>()
                 {
                     new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(Pass)), SellIn = 10, Quality = 22}
 
@@ -161,9 +161,9 @@ namespace GildedRoseTest
         public void BackStagePass_Item_Before_SellIn_Date_Less_5()
         {
             InventoryManagement inventoryManagement = new InventoryManagement();
-            inventoryManagement.Inventories = new Lazy<IEnumerable<Inventory>>(() =>
+            inventoryManagement.Inventories = new Lazy<IEnumerable<IInventory>>(() =>
             {
-                return new List<Inventory>()
+                return new List<IInventory>()
                 {
                     new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(Pass)), SellIn = 4, Quality = 16}
 
@@ -179,9 +179,9 @@ namespace GildedRoseTest
         public void BackStagePass_Item_After_SellIn_Date()
         {
             InventoryManagement inventoryManagement = new InventoryManagement();
-            inventoryManagement.Inventories = new Lazy<IEnumerable<Inventory>>(() =>
+            inventoryManagement.Inventories = new Lazy<IEnumerable<IInventory>>(() =>
             {
-                return new List<Inventory>()
+                return new List<IInventory>()
                 {
                     new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(Pass)), SellIn = -3, Quality =14}
 
@@ -197,9 +197,9 @@ namespace GildedRoseTest
         public void Conjured_Item_Before_SellIn_Date()
         {
             InventoryManagement inventoryManagement = new InventoryManagement();
-            inventoryManagement.Inventories = new Lazy<IEnumerable<Inventory>>(() =>
+            inventoryManagement.Inventories = new Lazy<IEnumerable<IInventory>>(() =>
             {
-                return new List<Inventory>()
+                return new List<IInventory>()
                 {
                     new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(Conjured)), SellIn = 3, Quality = 8}
 
@@ -215,9 +215,9 @@ namespace GildedRoseTest
         public void Conjured_Item_After_SellIn_Date()
         {
             InventoryManagement inventoryManagement = new InventoryManagement();
-            inventoryManagement.Inventories = new Lazy<IEnumerable<Inventory>>(() =>
+            inventoryManagement.Inventories = new Lazy<IEnumerable<IInventory>>(() =>
             {
-                return new List<Inventory>()
+                return new List<IInventory>()
                 {
                     new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(Conjured)), SellIn = -3, Quality = 9}
 
@@ -233,9 +233,9 @@ namespace GildedRoseTest
         public void AgedBre_Item_Before_SellIn_Date()
         {
             InventoryManagement inventoryManagement = new InventoryManagement();
-            inventoryManagement.Inventories = new Lazy<IEnumerable<Inventory>>(() =>
+            inventoryManagement.Inventories = new Lazy<IEnumerable<IInventory>>(() =>
             {
-                return new List<Inventory>()
+                return new List<IInventory>()
                 {
                     new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(AgedBrie)), SellIn = 6, Quality = 7}
 
@@ -251,9 +251,9 @@ namespace GildedRoseTest
         public void AgedBre_Item_After_SellIn_Date()
         {
             InventoryManagement inventoryManagement = new InventoryManagement();
-            inventoryManagement.Inventories = new Lazy<IEnumerable<Inventory>>(() =>
+            inventoryManagement.Inventories = new Lazy<IEnumerable<IInventory>>(() =>
             {
-                return new List<Inventory>()
+                return new List<IInventory>()
                 {
                     new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(AgedBrie)), SellIn = -4, Quality = 7}
 
