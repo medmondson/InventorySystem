@@ -65,7 +65,7 @@
         public override (int?, int?) Calculate(int? sellIn, int? quality)
         {
             DecreaseSellIn(ref sellIn);
-            if (sellIn <= 0)
+            if (sellIn < 0)
                 return (sellIn, 0);
             if (sellIn <= 5)
                 return (sellIn, quality += (3 * Changer));

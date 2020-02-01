@@ -10,7 +10,7 @@ using Assert = NUnit.Framework.Assert;
 namespace GildedRoseTest
 {
     [TestFixture]
-    public class Test1
+    public class QualitySellinTest
     {
         [Test]
         public void Normal_Item_Before_SellIn_Date()
