@@ -17,7 +17,7 @@ namespace GildedRose
             InventoryManagement inventoryManagement = new InventoryManagement();
             Console.WriteLine("Inventory List");
             EmptyLine();
-            Console.WriteLine(string.Format("{0,-20}{1,5}{2,10}", "Item", "SellIn", "Value"));
+            Columns(); //Console.WriteLine(string.Format("{0,-20}{1,5}{2,10}", "Item", "SellIn", "Quality"));
             foreach (var inventory in inventoryManagement.Inventories.Value)
             {
                 Console.WriteLine(string.Format("{0,-20}{1,5}{2,10}", inventory.Item.Name,
@@ -39,7 +39,7 @@ namespace GildedRose
                     EmptyLine();
                     Console.WriteLine("Updated Inventory List");
                     EmptyLine();
-                    Console.WriteLine(string.Format("{0,-20}{1,5}{2,10}", "Item", "SellIn", "Value"));
+                    Columns();//Console.WriteLine(string.Format("{0,-20}{1,5}{2,10}", "Item", "SellIn", "Value"));
                     foreach (var inventory in inventoryManagement.Inventories.Value)
                     {
                         Console.WriteLine(string.Format("{0,-20}{1,5}{2,10}",
@@ -57,6 +57,7 @@ namespace GildedRose
             } while (!valid);
         }
 
+        private static void Columns() { Console.WriteLine(string.Format("{0,-20}{1,5}{2,10}", "Item", "SellIn", "Quality")); }
         private static void EmptyLine() { Console.WriteLine("----------------------------"); }
 
         private static void EndListLine() { Console.WriteLine("--------End of List---------"); }

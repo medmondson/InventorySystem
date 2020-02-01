@@ -9,8 +9,8 @@ namespace GildedRoseLib.Access
         public static IList<Item> Items = new List<Item>()
             {
                 new AgedBrie("Aged Brie"),
-                new Pass("Backstage passes"),
-                new Legendary("Sulfuras"),
+                new BackstagePass("Backstage passes"),
+                new Sulfuras("Sulfuras"),
                 new Normal("Normal Item"),
                 new Conjured("Conjured")
             };

@@ -66,43 +66,6 @@ namespace GildedRoseTest
             Assert.AreEqual(inventory.SellIn, -2);
         }
 
-
-        [Test]
-        public void Legendary_Item_Before_SellIn_Date()
-        {
-            InventoryManagement inventoryManagement = new InventoryManagement();
-            inventoryManagement.Inventories = new Lazy<IEnumerable<IInventory>>(() =>
-            {
-                return new List<IInventory>()
-                {
-                    new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(Legendary)), SellIn = 2, Quality = 5}
-
-                };
-            });
-            inventoryManagement.Adjust();
-            var inventory = inventoryManagement.Inventories.Value.ElementAt(0);
-            Assert.AreEqual(inventory.Quality, 5);
-            Assert.AreEqual(inventory.SellIn, 2);
-        }
-
-        [Test]
-        public void Legendary_Item_After_SellIn_Date()
-        {
-            InventoryManagement inventoryManagement = new InventoryManagement();
-            inventoryManagement.Inventories = new Lazy<IEnumerable<IInventory>>(() =>
-            {
-                return new List<IInventory>()
-                {
-                    new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(Legendary)), SellIn = -2, Quality = 5}
-
-                };
-            });
-            inventoryManagement.Adjust();
-            var inventory = inventoryManagement.Inventories.Value.ElementAt(0);
-            Assert.AreEqual(inventory.Quality, 5);
-            Assert.AreNotEqual(inventory.SellIn, 2);
-        }
-
         [Test]
         public void BackStagePass_Item_Before_SellIn_Date_Greater_10()
         {
@@ -111,7 +74,7 @@ namespace GildedRoseTest
             {
                 return new List<IInventory>()
                 {
-                    new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(Pass)), SellIn = 12, Quality = 5}
+                    new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(BackstagePass)), SellIn = 12, Quality = 5}
 
                 };
             });
@@ -129,7 +92,7 @@ namespace GildedRoseTest
             {
                 return new List<IInventory>()
                 {
-                    new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(Pass)), SellIn = 11, Quality = 5}
+                    new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(BackstagePass)), SellIn = 11, Quality = 5}
 
                 };
             });
@@ -147,7 +110,7 @@ namespace GildedRoseTest
             {
                 return new List<IInventory>()
                 {
-                    new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(Pass)), SellIn = 10, Quality = 22}
+                    new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(BackstagePass)), SellIn = 10, Quality = 22}
 
                 };
             });
@@ -165,7 +128,7 @@ namespace GildedRoseTest
             {
                 return new List<IInventory>()
                 {
-                    new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(Pass)), SellIn = 4, Quality = 16}
+                    new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(BackstagePass)), SellIn = 4, Quality = 16}
 
                 };
             });
@@ -183,7 +146,7 @@ namespace GildedRoseTest
             {
                 return new List<IInventory>()
                 {
-                    new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(Pass)), SellIn = -3, Quality =14}
+                    new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(BackstagePass)), SellIn = -3, Quality =14}
 
                 };
             });
@@ -263,6 +226,78 @@ namespace GildedRoseTest
             var inventory = inventoryManagement.Inventories.Value.ElementAt(0);
             Assert.AreEqual(inventory.Quality, 8);
             Assert.AreEqual(inventory.SellIn, -5);
+        }
+
+        [Test]
+        public void Legendary_Item_Before_SellIn_Date()
+        {
+            InventoryManagement inventoryManagement = new InventoryManagement();
+            inventoryManagement.Inventories = new Lazy<IEnumerable<IInventory>>(() =>
+            {
+                return new List<IInventory>()
+                {
+                    new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(Sulfuras)), SellIn = 2, Quality = 5}
+
+                };
+            });
+            inventoryManagement.Adjust();
+            var inventory = inventoryManagement.Inventories.Value.ElementAt(0);
+            Assert.AreEqual(inventory.Quality, 5);
+            Assert.AreEqual(inventory.SellIn, 2);
+        }
+
+        [Test]
+        public void Sulfuras_Item_After_SellIn_Date()
+        {
+            InventoryManagement inventoryManagement = new InventoryManagement();
+            inventoryManagement.Inventories = new Lazy<IEnumerable<IInventory>>(() =>
+            {
+                return new List<IInventory>()
+                {
+                    new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(Sulfuras)), SellIn = -2, Quality = 5}
+
+                };
+            });
+            inventoryManagement.Adjust();
+            var inventory = inventoryManagement.Inventories.Value.ElementAt(0);
+            Assert.AreEqual(inventory.Quality, 5);
+            Assert.AreEqual(inventory.SellIn, -2);
+        }
+
+        [Test]
+        public void Sulfuras_Item_Before_SellIn_Date_Over_50()
+        {
+            InventoryManagement inventoryManagement = new InventoryManagement();
+            inventoryManagement.Inventories = new Lazy<IEnumerable<IInventory>>(() =>
+            {
+                return new List<IInventory>()
+                {
+                    new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(Sulfuras)), SellIn = 8, Quality = 57}
+
+                };
+            });
+            inventoryManagement.Adjust();
+            var inventory = inventoryManagement.Inventories.Value.ElementAt(0);
+            Assert.AreEqual(inventory.Quality, 50);
+            Assert.AreEqual(inventory.SellIn, 8);
+        }
+
+        [Test]
+        public void Sulfuras_Item_After_SellIn_Date_Over_50()
+        {
+            InventoryManagement inventoryManagement = new InventoryManagement();
+            inventoryManagement.Inventories = new Lazy<IEnumerable<IInventory>>(() =>
+            {
+                return new List<IInventory>()
+                {
+                    new Inventory() {Item = Repos.Items.FirstOrDefault(i => i.GetType() == typeof(Sulfuras)), SellIn = -4, Quality = 55}
+
+                };
+            });
+            inventoryManagement.Adjust();
+            var inventory = inventoryManagement.Inventories.Value.ElementAt(0);
+            Assert.AreEqual(inventory.Quality, 50);
+            Assert.AreEqual(inventory.SellIn, -4);
         }
 
         [Test]

@@ -26,10 +26,10 @@
         }
     }
 
-    public class Legendary : Item
+    public class Sulfuras : Item
     {
         public override int By { get; } = 0;
-        public Legendary(string name) : base(name) { }
+        public Sulfuras(string name) : base(name) { }
         public override (int?, int?) Calculate(int? sellIn, int? quality)
         {
             return (sellIn, quality);
@@ -59,9 +59,9 @@
         }
     }
 
-    public class Pass : AgedBrie
+    public class BackstagePass : AgedBrie
     {
-        public Pass(string name) : base(name) { }
+        public BackstagePass(string name) : base(name) { }
         public override (int?, int?) Calculate(int? sellIn, int? quality)
         {
             DecreaseSellIn(ref sellIn);
