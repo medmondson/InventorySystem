@@ -14,3 +14,5 @@ jobs:
     - name: Setup MSBuild.exe
       uses: warrenbuckley/Setup-MSBuild@v1
     
+    - name: Build
+      uses: msbuild GildedRose.sln
