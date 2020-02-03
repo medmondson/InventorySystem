@@ -12,5 +12,5 @@ jobs:
     - name: Setup Nuget
       run: NuGet/setup-nuget@v1.0.2
     - name: Restore Packages
-    - run: nuget restore GildedRose.sln
+      run: nuget restore GildedRose.sln
     
